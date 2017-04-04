@@ -6,7 +6,7 @@
 <!-- **************************************** -->
 
 
-<div class="jumbotron text-center">
+<div id= "accueil" class="jumbotron text-center">
 <br>
   <h1>LUXORG</h1> 
   <p>L'organisation de luxe, pour votre bien etre quotidien !! </p> <br>  
