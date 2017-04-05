@@ -19,11 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `Alarme`
 --
-drop database LuxOrg if exists;
-
-create database LuxOrg;
-
-  use LuxOrg;
 
 CREATE TABLE `Alarme` (
   `id_Alarme` int(3) NOT NULL,
