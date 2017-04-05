@@ -21,8 +21,9 @@ $Notif = null;
 					if($value == 1)
 					{
 						$Notif = "je marche";
-						$_SESSION['mail'] = $mail;
-						header('Location: Controleur_index.php');	
+						/*$_SESSION['mail'] = $mail;*/
+						setcookie("mail",$_POST["email"]);
+						header('Location: Controleur_espace_perso.php');	
 					}							
 				}	
 			}	

@@ -68,6 +68,7 @@ CREATE TABLE `Objet_Connectes` (
 CREATE TABLE `Tache` (
   `id_Tache` int(3) NOT NULL,
   `id_user` int(3) NOT NULL,
+  `id_objet` int(3) NOT NULL,
   `numero_tache` int(3) NOT NULL,
   `duree` time NOT NULL,
   `libelle` varchar(255) NOT NULL,
@@ -130,6 +131,7 @@ ALTER TABLE `Objet_Connectes`
 ALTER TABLE `Tache`
   ADD PRIMARY KEY (`id_Tache`),
   ADD KEY `FK_Tache_Utilisateur` (`id_user`),
+  ADD KEY `FK_Tache_Objet_Connectes` (`id_objet`);
 --
 -- Index pour la table `utilisateur`
 --
@@ -186,3 +188,4 @@ ALTER TABLE `Objet_Connectes`
 --
 ALTER TABLE `Tache`
   ADD CONSTRAINT `FK_Tache_Utilisateur` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`id_utilisateur`);
+  ADD CONSTRAINT `FK_Tache_Objet_Connectes` FOREIGN KEY (`id_objet`) REFERENCES `utilisateur` (`id_utilisateur`);

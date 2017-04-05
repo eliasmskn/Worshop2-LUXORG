@@ -120,6 +120,16 @@
 			$select->execute();
 			$resultat = $select->fetch();
 			return $resultat;
+		}
+
+		public function selectwhereobjet($mail){
+
+			$requete = 'select * from objet_connectes where  = "'.$mail.'";';
+			$select = $this->unPDO->prepare($requete);	
+				
+			$select->execute();
+			$resultat = $select->fetch();
+			return $resultat;
 
 
 		}

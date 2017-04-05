@@ -32,7 +32,7 @@
 				$tab = $unObj->serialiser();
 				$tab["id_user"] = $id_u;
 				$unModel->insert($tab);
-				header('Location: Controleur_souscription_2.php');
+				header('Location: Controleur_espace_perso.php');
 			}				
 
 	
