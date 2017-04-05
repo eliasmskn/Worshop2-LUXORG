@@ -110,4 +110,18 @@
 			return $resultat;
 
 		}	
+
+
+		public function selectwheremail($mail){
+
+			$requete = 'select id_utilisateur from utilisateur where mail = "'.$mail.'";';
+			$select = $this->unPDO->prepare($requete);	
+				
+			$select->execute();
+			$resultat = $select->fetch();
+			return $resultat;
+
+
+		}
+
 	}

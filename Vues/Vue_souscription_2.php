@@ -12,7 +12,7 @@
  </div> 
 
  <div class="container-fluide" id="connexion">
-  <h2>Formulaire 1/3</h2>
+  <h2>Formulaire 2/3</h2>
    <div class = "row " >
    <br><br>
    <div class="col-sm-1">
@@ -21,71 +21,52 @@
         <span class="glyphicon glyphicon-pencil logo slideanim"></span>
       </div>
     <div class="col-sm-9">
-        <form class="form-horizontal"  role="form" method="post" action="Controleur_Souscription.php">
+        <form class="form-horizontal"  role="form" method="post" action="Controleur_Souscription_2.php">
     <div class="col-sm-2">
     </div>
          
     <div class="form-group">
-      <input type="hidden" name="id_utilisateur"class="form-control" id="id_utilisateur">
+      <input type="hidden" name="id_obj"class="form-control" id="id_objet">
     </div>
     <div class="col-sm-2">
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="nom">Nom :</label>
+      <label class="control-label col-sm-2" for="libelle">Objet :</label>
      <div class="col-sm-4">
-      <input pattern="[A-Za-z]{2,20}" type="text" name="nom"class="form-control" id="nom" placeholder="Entrez votre nom" required>
+      <select class="form-control" id="libelle" name="libelle">
+        <option>Réveil</option>
+        <option>Cafetière</option>
+        <option>Grille-pain</option>
+        <option>Machine à laver</option>
+        <option>Voiture</option>
+        <option>Rideaux</option>
+        <option>Store</option>
+        <option>TV</option>
+        <option>Radio</option>
+        <option>Luminosité</option>
+        <option>Chauffage / Climatisation</option>
+        <option>Autres ..</option>
+      </select>
       </div>
     </div>
     <div class="col-sm-2">
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="prenom">Prenom :</label>
+      <label class="control-label col-sm-2" for="prenom">Code Objet :</label>
       <div class="col-sm-4">
-       <input pattern="[A-Za-z]{2,20}" type="text" name="prenom" class="form-control" id="prenom" placeholder="Entrez votre Prenom" required>
+       <input pattern="[A-Za-z]{2,20}" type="text" name="code" class="form-control" id="code" placeholder="Entrez le code objet" required>
       </div>
       </div>
       <div class="col-sm-2">
       </div>
       <div class="form-group">
-         <label class="control-label col-sm-2" for="adresse">Adresse :</label>
-         <div class="col-sm-4">
-          <input type="text" name="adresse" class="form-control" id="adresse" placeholder="Enter votre adresse" required>
-        </div>
-      </div>
-      <div class="col-sm-2">
-      </div>
-      <div class="form-group">
-         <label class="control-label col-sm-2" for="code_postal">Code postal :</label>
-         <div class="col-sm-4">
-           <input pattern="[0-9]{5}" type="text" name="code_postal" class="form-control" id="code_postal" placeholder="Entrer votre code postal" required></div>       
-         </div>
-      <div class="col-sm-2">
-      </div>
-      <div class="form-group">
-         <label class="control-label col-sm-2" for="telephone">N° Telephone :</label>
-           <div class="col-sm-4">
-            <input pattern="(01|02|03|04|05|06|07|08|09)[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}[ \.\-]?[0-9]{2}" type="tel"    name="telephone" class="form-control" id="telephone" placeholder="Entrer votre N° tel" required>
-      </div></div>
-      <div class="col-sm-2">
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="mail">Adresse Mail :</label>
-          <div class="col-sm-4">
-            <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" type="mail" name="mail" class="form-control" id="mail" placeholder="Enter votre mail" required>
-      </div></div>
-
-      <div class="col-sm-2">
-      </div>
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="mdp">Mot de passe :</label>
-          <div class="col-sm-4">
-           <input type="text" name="mdp" class="form-control" id="mdp" placeholder="Enter votre mot de passe" required>
-          </div>
-      </div>
-
+      <input type="hidden" name="id_user"class="form-control" id="id_utilisateur">
+    </div>
+      
         <div class="col-sm-5">
       </div>
-      <button type="submit" name="suivant" class="btn btn-default">Suivant</button>
+      <button type="submit" name="suivant" class="btn btn-default">Objet suivant</button>
+      <button type="submit" name="suite" class="btn btn-default">Suite souscription</button>
       <button type="reset" name="annuler" class="btn btn-default">Annuler</button></br>
       </div>
     </form>  
