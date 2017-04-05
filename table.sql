@@ -20,12 +20,6 @@ SET time_zone = "+00:00";
 -- Structure de la table `Alarme`
 --
 
-drop database LuxOrg if exists;
-
-create database LuxOrg ;
-
-use LuxOrg;
-
 CREATE TABLE `Alarme` (
   `id_Alarme` int(3) NOT NULL,
   `id_user` int(3) NOT NULL,
@@ -67,9 +61,10 @@ CREATE TABLE `Objet_Connectes` (
 
 CREATE TABLE `Tache` (
   `id_Tache` int(3) NOT NULL,
-  `id_objet` int(3) NOT NULL,
+  `libelle` varchar(255) not null,
+  `duree` time not null,
   `id_user` int(3) NOT NULL,
-  `.  b` int(3) NOT NULL
+  `numero_tache` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -129,6 +124,7 @@ ALTER TABLE `Objet_Connectes`
 ALTER TABLE `Tache`
   ADD PRIMARY KEY (`id_Tache`),
   ADD KEY `FK_Tache_Utilisateur` (`id_user`),
+
 --
 -- Index pour la table `utilisateur`
 --
@@ -184,4 +180,5 @@ ALTER TABLE `Objet_Connectes`
 -- Contraintes pour la table `Tache`
 --
 ALTER TABLE `Tache`
+  ADD CONSTRAINT `FK_Tache_Objet` FOREIGN KEY (`id_objet`) REFERENCES `Objet_Connectes` (`id_obj`),
   ADD CONSTRAINT `FK_Tache_Utilisateur` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`id_utilisateur`);
