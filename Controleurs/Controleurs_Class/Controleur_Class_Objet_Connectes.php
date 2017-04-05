@@ -1,14 +1,14 @@
 <?php
 class Objet_Connectes
 {
-	protected $id_objet;
+	protected $id_obj;
 	protected $libelle;
 	protected $code;
 	protected $id_user;
 
 	public function __construct()
 	{	
-		$this->id_objet = 0;
+		$this->id_obj = 0;
 		$this->libelle = "";
 		$this->code = "";
 		$this->id_user = 0;
@@ -18,7 +18,7 @@ class Objet_Connectes
 	public function renseigner($tab)
 	{	
 
-		$this->id_objet = $tab['id_objet'];
+		$this->id_obj = $tab['id_obj'];
 		$this->libelle = $tab['libelle'];
 		$this->code = $tab['code'];
 		$this->id_user = $tab['id_user'];
@@ -27,7 +27,7 @@ class Objet_Connectes
 	
 	public function serialiser()
 	{	
-		$tab['id_objet'] = $this->id_objet;
+		$tab['id_obj'] = $this->id_obj;
 		$tab['libelle'] = $this->libelle;
 		$tab['code'] = $this->code;
 		$tab['id_user'] = $this->id_user;
@@ -37,7 +37,7 @@ class Objet_Connectes
 
 	public function afficher()
 	{
-		return "<td>".$this->id_objet."</td>
+		return "<td>".$this->id_obj."</td>
 				.<td>".$this->libelle."</td>
 				.<td>".$this->code."</td>
 				.<td>".$this->id_user."</td>";
@@ -53,14 +53,14 @@ class Objet_Connectes
 			return $chaine;
 		}
 	
-	public function getid_objet()
+	public function getid_obj()
 	{
-		return $this->id_objet;
+		return $this->id_obj;
 	}
 
-	public function setid_objet($id_objet)
+	public function setid_obj($id_obj)
 	{
-		$this->id_objet = $id_objet;
+		$this->id_obj = $id_obj;
 	}
 
     /**

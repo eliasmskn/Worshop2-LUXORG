@@ -1,14 +1,14 @@
 <?php
 class Alarme
 {
-	protected $id_alarme;
+	protected $id_Alarme;
 	protected $jour;
 	protected $heure;
 	protected $id_user;
 
 	public function __construct()
 	{	
-		$this->id_alarme = 0;
+		$this->id_Alarme = 0;
 		$this->jour = "";
 		$this->heure = "";
 		$this->id_user = 0;
@@ -18,7 +18,7 @@ class Alarme
 	public function renseigner($tab)
 	{	
 
-		$this->id_alarme = $tab['id_alarme'];
+		$this->id_Alarme = $tab['id_Alarme'];
 		$this->jour = $tab['jour'];
 		$this->heure = $tab['code'];
 		$this->id_user = $tab['id_user'];
@@ -27,7 +27,7 @@ class Alarme
 	
 	public function serialiser()
 	{	
-		$tab['id_objet'] = $this->id_alarme;
+		$tab['id_objet'] = $this->id_Alarme;
 		$tab['jour'] = $this->jour;
 		$tab['heure'] = $this->heure;
 		$tab['id_user'] = $this->id_user;
@@ -37,7 +37,7 @@ class Alarme
 
 	public function afficher()
 	{
-		return "<td>".$this->id_alarme."</td>
+		return "<td>".$this->id_Alarme."</td>
 				.<td>".$this->jour."</td>
 				.<td>".$this->heure."</td>
 				.<td>".$this->id_user."</td>";
@@ -53,14 +53,14 @@ class Alarme
 			return $chaine;
 		}
 	
-	public function getid_alarme()
+	public function getid_Alarme()
 	{
-		return $this->id_alarme;
+		return $this->id_Alarme;
 	}
 
-	public function setid_alarme($id_alarme)
+	public function setid_Alarme($id_Alarme)
 	{
-		$this->id_alarme = $id_alarme;
+		$this->id_Alarme = $id_Alarme;
 	}
 
     /**

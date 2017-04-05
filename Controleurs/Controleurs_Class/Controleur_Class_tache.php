@@ -3,14 +3,14 @@
 class Tache
 {
     protected $id_objet;
-    protected $id_tache;
+    protected $id_Tache;
     protected $numero_tache;
     protected $id_user;
 
     public function __construct()
     {
         $this->id_objet = 0;
-        $this->id_tache = 0;
+        $this->id_Tache = 0;
         $this->numero_tache = 0;
         $this->id_user = 0;
 
@@ -20,7 +20,7 @@ class Tache
     {
 
         $this->id_objet = $tab['id_objet'];
-        $this->id_tache = $tab['id_tache'];
+        $this->id_Tache = $tab['id_Tache'];
         $this->numero_tache = $tab['numero_tache'];
         $this->id_user = $tab['id_user'];
 
@@ -29,7 +29,7 @@ class Tache
     public function serialiser()
     {
         $tab['id_objet'] = $this->id_objet;
-        $tab['id_tache'] = $this->id_tache;
+        $tab['id_Tache'] = $this->id_Tache;
         $tab['numero_tache'] = $this->numero_tache;
         $tab['id_user'] = $this->id_user;
 
@@ -39,7 +39,7 @@ class Tache
     public function afficher()
     {
         return "<td>" . $this->id_objet . "</td>
-				.<td>" . $this->id_tache . "</td>
+				.<td>" . $this->id_Tache . "</td>
 				.<td>" . $this->numero_tache . "</td>
 				.<td>" . $this->id_user . "</td>";
 
@@ -70,15 +70,15 @@ class Tache
      */
     public function getIdtache()
     {
-        return $this->id_tache;
+        return $this->id_Tache;
     }
 
     /**
-     * @param string $id_tache
+     * @param string $id_Tache
      */
-    public function setIdtache($id_tache)
+    public function setIdtache($id_Tache)
     {
-        $this->id_tache = $id_tache;
+        $this->id_Tache = $id_Tache;
     }
 
 
