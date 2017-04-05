@@ -184,5 +184,5 @@ ALTER TABLE `Objet_Connectes`
 -- Contraintes pour la table `Tache`
 --
 ALTER TABLE `Tache`
-  ADD CONSTRAINT `FK_Tache_Utilisateur` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`id_utilisateur`);
+  ADD CONSTRAINT `FK_Tache_Utilisateur` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`id_utilisateur`),
   ADD CONSTRAINT `FK_Tache_Objet_Connectes` FOREIGN KEY (`id_objet`) REFERENCES `Objet_Connectes` (`id_obj`);
