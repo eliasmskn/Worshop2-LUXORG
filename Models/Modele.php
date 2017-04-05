@@ -35,6 +35,7 @@
 			$listevaleurs = array();
 			$donnees = array();
 
+
 			foreach ($tab as $key => $value) {
 				$listechamps[] = $key;
 				$listevaleurs[] = ":".$key;
@@ -49,9 +50,9 @@
 						.$valeurs. " ) ; ";
 
 			$insert = $this->unPDO->prepare($requete);
-			echo $requete;
+			
 			$insert->execute($donnees);
-			var_dump($donnees) ;
+			
 
 		}
 
