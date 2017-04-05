@@ -2,14 +2,12 @@
 
 class Tache
 {
-    protected $id_objet;
     protected $id_Tache;
     protected $numero_tache;
     protected $id_user;
 
     public function __construct()
     {
-        $this->id_objet = 0;
         $this->id_Tache = 0;
         $this->numero_tache = 0;
         $this->id_user = 0;
@@ -19,7 +17,6 @@ class Tache
     public function renseigner($tab)
     {
 
-        $this->id_objet = $tab['id_objet'];
         $this->id_Tache = $tab['id_Tache'];
         $this->numero_tache = $tab['numero_tache'];
         $this->id_user = $tab['id_user'];
@@ -28,7 +25,6 @@ class Tache
 
     public function serialiser()
     {
-        $tab['id_objet'] = $this->id_objet;
         $tab['id_Tache'] = $this->id_Tache;
         $tab['numero_tache'] = $this->numero_tache;
         $tab['id_user'] = $this->id_user;
@@ -38,8 +34,7 @@ class Tache
 
     public function afficher()
     {
-        return "<td>" . $this->id_objet . "</td>
-				.<td>" . $this->id_Tache . "</td>
+        return "<td>" . $this->id_Tache . "</td>
 				.<td>" . $this->numero_tache . "</td>
 				.<td>" . $this->id_user . "</td>";
 
@@ -53,16 +48,6 @@ class Tache
             $chaine .= "<br/>" . $cle . " : " . $valeur;
         }
         return $chaine;
-    }
-
-    public function getid_objet()
-    {
-        return $this->id_objet;
-    }
-
-    public function setid_objet($id_objet)
-    {
-        $this->id_objet = $id_objet;
     }
 
     /**
