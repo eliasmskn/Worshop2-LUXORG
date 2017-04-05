@@ -12,6 +12,7 @@
  </div> 
 
  <div class="container-fluide" id="connexion">
+  <h2>Formulaire 1/3</h2>
    <div class = "row " >
    <br><br>
    <div class="col-sm-1">
@@ -20,7 +21,7 @@
         <span class="glyphicon glyphicon-pencil logo slideanim"></span>
       </div>
     <div class="col-sm-9">
-        <form class="form-horizontal"  role="form" method="post" action="Controleur_souscription.php">
+        <form class="form-horizontal"  role="form" method="post" action="Controleur_Souscription.php">
     <div class="col-sm-2">
     </div>
          

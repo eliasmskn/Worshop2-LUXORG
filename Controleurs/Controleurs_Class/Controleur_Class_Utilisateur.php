@@ -1,50 +1,50 @@
 <?php
-class Candidat
+class Utilisateur
 {
 	protected $id_utilisateur;
-	protected $nom_utilisateur; 
-	protected $prenom_utilisateur;
-	protected $adresse_utilisateur;
-	protected $cp_utilisateur;
-	protected $telephone_utilisateur;
-	protected $mail_utilisateur;   
-	protected $mdp_utilisateur;
+	protected $nom; 
+	protected $prenom;
+	protected $adresse;
+	protected $code_postal;
+	protected $telephone;
+	protected $mail;   
+	protected $mdp;
 
 	public function __construct()
 	{	
 		$this->id_utilisateur = 0;	
-		$this->nom_utilisateur = "";
-		$this->prenom_utilisateur = "";
-		$this->adresse_utilisateur = "";
-		$this->cp_utilisateur = 0;
-		$this->telephone_utilisateur = "";
-		$this->mail_utilisateur = "";
-		$this->mdp_utilisateur = "";
+		$this->nom = "";
+		$this->prenom = "";
+		$this->adresse = "";
+		$this->code_postal = 0;
+		$this->telephone = 0;
+		$this->mail = "";
+		$this->mdp = "";
 	}
 
 	public function renseigner($tab)
 	{	
-
+		
 		$this->id_utilisateur = $tab['id_utilisateur'];
-		$this->nom_utilisateur = $tab['nom_utilisateur'];
-		$this->prenom_utilisateur = $tab['prenom_utilisateur'];
-		$this->adresse_utilisateur = $tab['adresse_utilisateur'];
-		$this->cp_utilisateur = $tab['cp_utilisateur'];
-		$this->telephone_utilisateur = $tab['telephone_utilisateur'];
-		$this->mail_utilisateur = $tab['mail_utilisateur'];
-		$this->mdp_utilisateur = $tab['mdp_utilisateur'];
+		$this->nom = $tab['nom'];
+		$this->prenom = $tab['prenom'];
+		$this->adresse = $tab['adresse'];
+		$this->code_postal = $tab['code_postal'];
+		$this->telephone = $tab['telephone'];
+		$this->mail = $tab['mail'];
+		$this->mdp = $tab['mdp'];
 	}
 	
 	public function serialiser()
 	{	
 		$tab['id_utilisateur'] = $this->id_utilisateur;	
-		$tab['nom_utilisateur'] = $this->nom_utilisateur;
-		$tab['prenom_utilisateur'] = $this->prenom_utilisateur;
-		$tab['adresse_utilisateur'] = $this->adresse_utilisateur;
-		$tab['cp_utilisateur'] = $this->cp_utilisateur;
-		$tab['telephone_utilisateur'] = $this->telephone_utilisateur;
-		$tab['mail_utilisateur'] = $this->mail_utilisateur;
-		$tab['mdp_utilisateur'] = $this->mdp_utilisateur;
+		$tab['nom'] = $this->nom;
+		$tab['prenom'] = $this->prenom;
+		$tab['adresse'] = $this->adresse;
+		$tab['code_postal'] = $this->code_postal;
+		$tab['telephone'] = $this->telephone;
+		$tab['mail'] = $this->mail;
+		$tab['mdp'] = $this->mdp;
 			
 		return $tab;
 	}
@@ -52,13 +52,13 @@ class Candidat
 	public function afficher()
 	{
 		return "<td>".$this->id_utilisateur."</td>
-				.<td>".$this->nom_utilisateur."</td>
-				.<td>".$this->prenom_utilisateur."</td>
-				.<td>".$this->adresse_utilisateur."</td>
-				.<td>".$this->cp_utilisateur."</td>
-				.<td>".$this->telephone_utilisateur."</td>
-				.<td>".$this->mail_utilisateur."</td>
-				.<td>".$this->mdp_utilisateur."</td>";		
+				.<td>".$this->nom."</td>
+				.<td>".$this->prenom."</td>
+				.<td>".$this->adresse."</td>
+				.<td>".$this->code_postal."</td>
+				.<td>".$this->telephone."</td>
+				.<td>".$this->mail."</td>
+				.<td>".$this->mdp."</td>";		
 	}
 
 	public function lister(){
@@ -80,74 +80,74 @@ class Candidat
 		$this->id_utilisateur = $id_utilisateur;
 	}
 
-	public function getnom_utilisateur()
+	public function getnom()
 	{
-		return $this->nom_utilisateur;
+		return $this->nom;
 	}
 
-	public function setnom_utilisateur($nom_utilisateur)
+	public function setnom($nom)
 	{
-		$this->nom_utilisateur = $nom_utilisateur;
+		$this->nom = $nom;
 	}
 
-	public function getprenom_utilisateur()
+	public function getprenom()
 	{
-		return $this->prenom_utilisateur;
+		return $this->prenom;
 	}
 
-	public function setprenom_utilisateur($prenom_utilisateur)
+	public function setprenom($prenom)
 	{
-		$this->prenom_utilisateur = $prenom_utilisateur;
+		$this->prenom = $prenom;
 	}
 
-	public function getadresse_utilisateur()
+	public function getadresse()
 	{
-		return $this->adresse_utilisateur;
+		return $this->adresse;
 	}
 
-	public function setadresse_utilisateur($adresse_utilisateur)
+	public function setadresse($adresse)
 	{
-		$this->adresse_utilisateur = $adresse_utilisateur;
+		$this->adresse = $adresse;
 	}
 
-	public function getcp_utilisateur()
+	public function getcode_postal()
 	{
-		return $this->cp_utilisateur;
+		return $this->code_postal;
 	}
 
-	public function setcp_utilisateur($cp_utilisateur)
+	public function setcode_postal($code_postal)
 	{
-		$this->cp_utilisateur = $cp_utilisateur;
+		$this->code_postal = $code_postal;
 	}
 
-	public function gettelephone_utilisateur()
+	public function gettelephone()
 	{
-		return $this->telephone_utilisateur;
+		return $this->telephone;
 	}
 
-	public function settelephone_utilisateur($telephone_utilisateur)
+	public function settelephone($telephone)
 	{
-		$this->telephone_utilisateur = $telephone_utilisateur;
+		$this->telephone = $telephone;
 	}
 
-	public function getmail_utilisateur()
+	public function getmail()
 	{
-		return $this->mail_utilisateur;
+		return $this->mail;
 	}
 
-	public function setmail_utilisateur($mail_utilisateur)
+	public function setmail($mail)
 	{
-		$this->mail_utilisateur = $mail_utilisateur;
+		$this->mail = $mail;
 	}
 
-	public function getmdp_utilisateur()
+	public function getmdp()
 	{
-		return $this->mdp_utilisateur;
+		return $this->mdp;
 	}
 
-	public function setmdp_utilisateur($mdp_utilisateur)
+	public function setmdp($mdp)
 	{
-		$this->mdp_utilisateur = $mdp_utilisateur;
+		$this->mdp = $mdp;
 	}
 
 }
