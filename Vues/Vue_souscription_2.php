@@ -12,7 +12,7 @@
  </div> 
 
  <div class="container-fluide" id="connexion">
-  <h2>Formulaire 2/3</h2>
+  <center><h2>Formulaire 2/2</h2></center>
    <div class = "row " >
    <br><br>
    <div class="col-sm-1">

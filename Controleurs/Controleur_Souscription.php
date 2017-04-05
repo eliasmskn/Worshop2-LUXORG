@@ -6,8 +6,7 @@
 	$unModel = new Modele("localhost", "LuxOrg", "root", "");
 	$Erreur = null;
 	$Notif = null;
-	setcookie("mail",$_POST["mail"]);
-
+	
 		if(isset($_POST['suivant']))
 			{	
 				$unModel->renseigner("Utilisateur","id_utilisateur");												
@@ -15,6 +14,7 @@
 				$unUser->renseigner($_POST);
 				$tab = $unUser->serialiser();
 				$unModel->insert($tab);
+				setcookie("mail",$_POST["mail"]);
 				header('Location: Controleur_souscription_2.php');
 			}				
 		include ('../Vues/Vue_souscription.php');
