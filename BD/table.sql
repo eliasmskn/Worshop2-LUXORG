@@ -71,7 +71,7 @@ CREATE TABLE `Tache` (
   `id_objet` int(3) NOT NULL,
   `numero_tache` int(3) NOT NULL,
   `duree` time NOT NULL,
-  `libelle` varchar(255) NOT NULL,
+  `libelle` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
