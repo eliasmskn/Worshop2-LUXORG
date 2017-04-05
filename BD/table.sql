@@ -19,9 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `Alarme`
 --
-
-drop database LuxOrg if exists;
-
 create database LuxOrg ;
 
 use LuxOrg;
@@ -188,4 +185,4 @@ ALTER TABLE `Objet_Connectes`
 --
 ALTER TABLE `Tache`
   ADD CONSTRAINT `FK_Tache_Utilisateur` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`id_utilisateur`);
-  ADD CONSTRAINT `FK_Tache_Objet_Connectes` FOREIGN KEY (`id_objet`) REFERENCES `utilisateur` (`id_utilisateur`);
+  ADD CONSTRAINT `FK_Tache_Objet_Connectes` FOREIGN KEY (`id_objet`) REFERENCES `Objet_Connectes` (`id_obj`);
