@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Mar 04 Avril 2017 à 14:36
+-- Généré le :  Mer 05 Avril 2017 à 10:28
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.1
 
@@ -30,6 +30,19 @@ CREATE TABLE `Alarme` (
   `id_user` int(3) NOT NULL,
   `jour` enum('lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche') DEFAULT NULL,
   `heure` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commentaire`
+--
+
+CREATE TABLE `commentaire` (
+  `id_commentaire` int(3) NOT NULL,
+  `nom` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `commentaire` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -71,8 +84,19 @@ CREATE TABLE `utilisateur` (
   `Adresse` varchar(55) NOT NULL,
   `code_postal` varchar(5) NOT NULL,
   `telephone` int(10) UNSIGNED ZEROFILL NOT NULL,
-  `mail` varchar(255) NOT NULL
+  `mail` varchar(255) NOT NULL,
+  `mdp` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id_utilisateur`, `nom`, `prenom`, `Adresse`, `code_postal`, `telephone`, `mail`, `mdp`) VALUES
+(1, 'Amaskane', 'Elias', '63 rue des cloys', '75018', 0652790471, 'elias.amaskane@gmail.com', 'rootst'),
+(2, 'Yagoubi', 'Maïssane', '8 avenue de la république', '75011', 0611667629, 'maissane.y@gmail.com', 'rootst'),
+(3, 'Meite ', 'Massoma', '17 Rue de toulouse', '75019', 0620915317, 'meite.massoma@gmail.com', 'rootst'),
+(4, 'Jouanny', 'Jerome', '70 rue marius aufan ', '92333', 0625007104, 'jouanny.jerome@gmail.Com', 'rootst');
 
 --
 -- Index pour les tables exportées
@@ -84,6 +108,12 @@ CREATE TABLE `utilisateur` (
 ALTER TABLE `Alarme`
   ADD PRIMARY KEY (`id_Alarme`),
   ADD KEY `FK_Alarme_Utilisateur` (`id_user`);
+
+--
+-- Index pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD PRIMARY KEY (`id_commentaire`);
 
 --
 -- Index pour la table `Objet_Connectes`
@@ -116,6 +146,11 @@ ALTER TABLE `utilisateur`
 ALTER TABLE `Alarme`
   MODIFY `id_Alarme` int(3) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  MODIFY `id_commentaire` int(3) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT pour la table `Objet_Connectes`
 --
 ALTER TABLE `Objet_Connectes`
@@ -129,7 +164,7 @@ ALTER TABLE `Tache`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id_utilisateur` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_utilisateur` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Contraintes pour les tables exportées
 --
