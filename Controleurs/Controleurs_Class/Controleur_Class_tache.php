@@ -1,0 +1,110 @@
+<?php
+
+class Tache
+{
+    protected $id_objet;
+    protected $id_tache;
+    protected $numero_tache;
+    protected $id_user;
+
+    public function __construct()
+    {
+        $this->id_objet = 0;
+        $this->id_tache = 0;
+        $this->numero_tache = 0;
+        $this->id_user = 0;
+
+    }
+
+    public function renseigner($tab)
+    {
+
+        $this->id_objet = $tab['id_objet'];
+        $this->id_tache = $tab['id_tache'];
+        $this->numero_tache = $tab['numero_tache'];
+        $this->id_user = $tab['id_user'];
+
+    }
+
+    public function serialiser()
+    {
+        $tab['id_objet'] = $this->id_objet;
+        $tab['id_tache'] = $this->id_tache;
+        $tab['numero_tache'] = $this->numero_tache;
+        $tab['id_user'] = $this->id_user;
+
+        return $tab;
+    }
+
+    public function afficher()
+    {
+        return "<td>" . $this->id_objet . "</td>
+				.<td>" . $this->id_tache . "</td>
+				.<td>" . $this->numero_tache . "</td>
+				.<td>" . $this->id_user . "</td>";
+
+    }
+
+    public function lister()
+    {
+        $tab = $this->serialiser();
+        $chaine = "";
+        foreach ($tab as $cle => $valeur) {
+            $chaine .= "<br/>" . $cle . " : " . $valeur;
+        }
+        return $chaine;
+    }
+
+    public function getid_objet()
+    {
+        return $this->id_objet;
+    }
+
+    public function setid_objet($id_objet)
+    {
+        $this->id_objet = $id_objet;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdtache()
+    {
+        return $this->id_tache;
+    }
+
+    /**
+     * @param string $id_tache
+     */
+    public function setIdtache($id_tache)
+    {
+        $this->id_tache = $id_tache;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getIdUser()
+    {
+        return $this->id_user;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumeroTache()
+    {
+        return $this->numero_tache;
+    }
+
+    /**
+     * @param int $numero_tache
+     */
+    public function setNumeroTache($numero_tache)
+    {
+        $this->numero_tache = $numero_tache;
+    }
+
+
+}
