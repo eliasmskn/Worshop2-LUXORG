@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost
--- Généré le :  Mer 05 Avril 2017 à 10:28
+-- Généré le :  Mer 05 Avril 2017 à 16:10
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.1
 
@@ -13,6 +13,22 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `LuxOrg`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `abonnement`
+--
+
+CREATE database LuxOrg;
+use LuxOrg;
+
+CREATE TABLE `abonnement` (
+  `id_abonnement` int(3) NOT NULL,
+  `id_user` int(3) NOT NULL,
+  `type` enum('mensuel','à vie') DEFAULT NULL,
+  `prix` double(5,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -61,10 +77,11 @@ CREATE TABLE `Objet_Connectes` (
 
 CREATE TABLE `Tache` (
   `id_Tache` int(3) NOT NULL,
-  `libelle` varchar(255) not null,
-  `duree` time not null,
+  `id_objet` int(3) NOT NULL,
   `id_user` int(3) NOT NULL,
-  `numero_tache` int(3) NOT NULL
+  `numero_tache` int(3) NOT NULL,
+  `libelle` varchar(150) NOT NULL,
+  `duree` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -99,6 +116,13 @@ INSERT INTO `utilisateur` (`id_utilisateur`, `nom`, `prenom`, `Adresse`, `code_p
 --
 
 --
+-- Index pour la table `abonnement`
+--
+ALTER TABLE `abonnement`
+  ADD PRIMARY KEY (`id_abonnement`),
+  ADD KEY `id_user` (`id_user`);
+
+--
 -- Index pour la table `Alarme`
 --
 ALTER TABLE `Alarme`
@@ -124,6 +148,7 @@ ALTER TABLE `Objet_Connectes`
 ALTER TABLE `Tache`
   ADD PRIMARY KEY (`id_Tache`),
   ADD KEY `FK_Tache_Utilisateur` (`id_user`),
+  ADD KEY `FK_Tache_Objet` (`id_objet`);
 
 --
 -- Index pour la table `utilisateur`
@@ -135,6 +160,11 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour les tables exportées
 --
 
+--
+-- AUTO_INCREMENT pour la table `abonnement`
+--
+ALTER TABLE `abonnement`
+  MODIFY `id_abonnement` int(3) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `Alarme`
 --
@@ -163,6 +193,12 @@ ALTER TABLE `utilisateur`
 --
 -- Contraintes pour les tables exportées
 --
+
+--
+-- Contraintes pour la table `abonnement`
+--
+ALTER TABLE `abonnement`
+  ADD CONSTRAINT `abonnement_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `utilisateur` (`id_utilisateur`);
 
 --
 -- Contraintes pour la table `Alarme`
