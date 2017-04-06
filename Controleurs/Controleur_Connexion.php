@@ -4,7 +4,9 @@ include ("../Models/Modele.php");
 include ("../Models/Modele_extend.php");
 include ('Controleurs_Class/Controleur_Class_Utilisateur.php');
 
+
 $unModel = new Modele("localhost", "Luxorg", "root", "");
+
 $Erreur = null;
 $Notif = null;
 	if(isset($_POST['connexion']))
