@@ -133,4 +133,14 @@
 
 		}
 
+
+		public function selectwhereTache($id_user){
+			$requete = 'select numero_tache, duree, libelle from tache where id_user = "'.$id_user.'" order by numero_tache;';
+			$select = $this->unPDO->prepare($requete);	
+				
+			$select->execute();
+			$resultat = $select->fetchAll();
+			return $resultat;
+		}
+
 	}

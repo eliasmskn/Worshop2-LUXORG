@@ -15,8 +15,7 @@ $Notif = null;
 			$mdp = $_POST['mdp'];
 
 			$unModel->renseigner("utilisateur","id_utilisateur");
-			$resultat = $unModel->selectwhereconnexion($mail, $mdp);	
-			var_dump($resultat);		
+			$resultat = $unModel->selectwhereconnexion($mail, $mdp);		
 			if($resultat["nb"] == "1")
 			{
 				foreach ($resultat as $key => $value)
@@ -26,6 +25,7 @@ $Notif = null;
 						$Notif = "je marche";
 						/*$_SESSION['mail'] = $mail;*/
 						setcookie("mail",$_POST["email"]);
+						$_SESSION['mail'] = $mail;
 						header('Location: Controleur_espace_perso.php');	
 					}							
 				}	
