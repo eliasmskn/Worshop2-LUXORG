@@ -4,7 +4,7 @@ include ("../Models/Modele.php");
 include ("../Models/Modele_extend.php");
 include ('Controleurs_Class/Controleur_Class_Utilisateur.php');
 
-$unModel = new Modele("localhost", "LuxOrg", "root", "");
+$unModel = new Modele("localhost", "Luxorg", "root", "");
 $Erreur = null;
 $Notif = null;
 	if(isset($_POST['connexion']))
@@ -13,7 +13,8 @@ $Notif = null;
 			$mdp = $_POST['mdp'];
 
 			$unModel->renseigner("utilisateur","id_utilisateur");
-			$resultat = $unModel->selectwhereconnexion($mail, $mdp);			
+			$resultat = $unModel->selectwhereconnexion($mail, $mdp);	
+			var_dump($resultat);		
 			if($resultat["nb"] == "1")
 			{
 				foreach ($resultat as $key => $value)

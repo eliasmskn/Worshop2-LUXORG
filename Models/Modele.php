@@ -101,14 +101,13 @@
 		
 		public function selectwhereconnexion($mail, $mdp)
 		{			
-			$requete = 'select count(*) as nb from utilisateur where mail = "'.$mail.'" and mdp='.$mdp.';';
+			$requete = 'select count(*) as nb from utilisateur where mail = "'.$mail.'" and mdp="'.$mdp.'";';
 			$select = $this->unPDO->prepare($requete);	
-				
+				var_dump($requete);
 			$select->execute();
 			$resultat = $select->fetch();
-				
 			return $resultat;
-
+			var_dump($resultat);die();
 		}	
 
 

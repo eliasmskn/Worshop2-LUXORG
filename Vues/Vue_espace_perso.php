@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-</div>
+
 
 <div id="planning" class="container-fluid text-center bg-grey">
   <h2>Planification des tâches</h2></br>
@@ -43,7 +43,30 @@
           </div>
         
           <div id="collapse1" class="panel-collapse collapse">
-            <!-- <?php echo $chaineTaches;?> -->
+
+            <form role="'form'" method="'post'" action="'Controleur_espace_perso.php'">
+          <div class="'form-group'">
+            <label for="'email'">Tache :</label>
+            <input type="'text'" name="'libelle'"class="'form-control'" id="'libelle'" placeholder="'Enter le libelle de votre tache'">
+          </div><br>
+          <div class="'form-group'">
+            <label for="'pwd'">Durée :</label>
+            <input type="'time'" name="'duree'" class="'form-control'" id="'duree'">
+          </div><br>
+          <div class="'form-group'">
+            <label for="'pwd'">Ordre priorité :</label>
+            <select class="'form-control'" id="'libelle'" name="'libelle'">
+          <option>Première</option>
+          <option> entre deux </option>
+          <option>Dérnière</option>
+        </select>
+          </br>
+          <button type="'submit'" name="'connexion'" class="'btn btn-default'">Connexion</button>
+          <button type="'reset'" name="'annuler'" class="'btn btn-default'">Annuler</button>
+          <br><br>
+        </form>
+        
+            <?php echo $chainetaches;?>
           </div>
         </div>
       </div>
