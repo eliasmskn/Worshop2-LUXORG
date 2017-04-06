@@ -6,7 +6,7 @@
 	include ('Controleurs_Class/Controleur_Class_tache.php');
 	include ('Controleurs_Class/Controleur_Class_Objet_Connectes.php');
 	include ('Controleurs_Class/Controleur_Class_Alarme.php');
-
+	var_dump($_POST['Ajouter']);
 	$unModel = new Modele("localhost", "LuxOrg", "root", "");
 	$uneTache = new Tache();
 
@@ -16,7 +16,6 @@
 	$id_user = $id_u["id_utilisateur"];
 			if(isset($_POST['Ajouter']))
 			{
-				$var_dump($_POST['id_user']);die();
 				$unModel->renseigner("tache","id_Tache");												
 				/*$uneTache = new Tache(); */	
 				$_POST["id_objet"] = 0;
@@ -26,6 +25,7 @@
 				$tab = $uneTache->serialiser();
 				$unModel->insert($tab);
 				var_dump($tab);
+				die();
 				header('Location: Controleur_espace_perso.php');
 
 			}	
