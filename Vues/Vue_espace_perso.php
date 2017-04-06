@@ -73,7 +73,7 @@
                 </select>
               </div></br>
 
-              <button type="submit" name="ajouter" class="btn btn-default">Ajouter</button>
+              <button type="submit" name="Ajouter" class="btn btn-default">Ajouter</button>
               <button type="reset" name="annuler" class="btn btn-default">Annuler</button>
               <br><br>
             </form>
