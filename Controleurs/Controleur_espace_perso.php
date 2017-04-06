@@ -14,12 +14,28 @@
 	$_SESSION['mail'] = $mail;
 	$id_u = $unModel->selectwheremail($mail);
 	$id_user = $id_u["id_utilisateur"];
+			if(isset($_POST['Ajouter']))
+			{
+				$var_dump($_POST['id_user']);die();
+				$unModel->renseigner("tache","id_Tache");												
+				/*$uneTache = new Tache(); */	
+				$_POST["id_objet"] = 0;
+				$_POST["id_user"] = $id_user;				
+				$uneTache->renseigner($_POST);
+				var_dump($_POST);
+				$tab = $uneTache->serialiser();
+				$unModel->insert($tab);
+				var_dump($tab);
+				header('Location: Controleur_espace_perso.php');
+
+			}	
+
 
 			if(isset($_GET['action']))
 			{
 				$action = $_GET['action'];
 				$id = $_GET['id'];
-
+				var_dump(38);
 				switch ($action) 
 				{	
 			/******************************Suppression tache*************************************/				
