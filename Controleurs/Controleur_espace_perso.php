@@ -16,7 +16,11 @@
 	$id_user = $id_u["id_utilisateur"];
 
 
-
+			if(isset($_GET['deconnexion']) && $_GET['deconnexion'] == 1)
+			{
+				session_destroy();
+				header('Location: Controleur_index.php');
+			}
 
 			if(isset($_POST['Ajouter']))
 			{
@@ -163,26 +167,112 @@
 
 
 
-			$alarme ="  <center><h1>LuxOrg Timer</h1></center>
+			$alarme ="  <div class='container-fluid'>
+						<center><h1>LuxOrg Timer</h1></center>
 						<button onclick='start()'>Lancer l' Alarme</button>
 						<div class='row2'>
 							<div class='col-sss-3'>
 								<div id='bip' class='display'>00:00:00</div>
-						    		<div id='précedente'>    
-						    			<h3><div class='tacheprecedente'>La dernière tâche: <span class='value'>Aucune</span>	 </div>
-						        		</h3>
-						    		</div>
-						        	<h3>
-						        		<div class='content'>Execution de la prochaine tâche dans : <span class='value'></span>secondes</div>
-						        	</h3>
-						    	<div class='tachesuivante'>Nom de la  tâche: <span class='value'>Aucune</span></div>
-
-								</div>
 							</div>
 						</div>";
 
-	
+			$alarme .="	<div class='row3'>
+							<div class='col-sm-3'></div>
+								<div class='col-sm-6'>
+									<div id='précedente'>    
+								    			<h3><div class='tacheprecedente'>Tâche Précedente: <span class='value'>Aucune</span>	 </div>
+								        		</h3>
+								    		</div>
+								        	</h3>
+								        	<h3>
+								        		<div class='content'>Prochaine Execution dans : <span class='value'></span>s</div><br>
+								        	</h3>
+								    <div class='tachesuivante'>Prochaine Tâche: <span class='value'>Aucune</span></div>
+							    </div>
+							</div>
+							<div class='col-sm-3'></div>
+						</div>
+						</div>";
+
+		
 			
 
 		include("../Vues/Vue_espace_perso.php");
 ?>
+
+
+<script>
+    var k=0;
+    var counter = 0;
+    var intervalId = null;
+    var items = [
+        ["cafe", 3],
+
+        ["voiture", 6]
+    ];
+    for (var i = 0; i < items.length; i++) {
+        var dureetime = items[i][1];
+        var libelle = items[i][0];
+
+    }
+    function action()
+    {
+
+    }
+    function dateHMS(time) {
+        var addZero = function(v) { return v<10 ? '0' + v : v; };
+        var d = new Date(time * 1000); // js fonctionne en milisecondes
+        var t = [];
+        t.push(addZero(d.getHours())-1);
+        t.push(addZero(d.getMinutes()));
+        t.push(addZero(d.getSeconds()));
+        return t.join(':');
+    }
+    function bip()
+    {
+
+
+        for (var i = 0; i < items.length; i++) {
+            var dureetime = items[i][1];
+            var libelle = items[i][0];
+            $("#bip").html(dateHMS(counter));
+           if(counter==dureetime)
+           {
+               console.log(libelle);
+               var j=i+1;
+
+               var calc=items[j][1]-items[i][1];
+
+               $(".content .value").html(calc);
+               $(".tacheprecedente .value").html(items[i][0]);
+               $(".tachesuivante .value").html(items[j][0]);
+               alert(libelle);
+           }
+        }
+
+        counter++;
+        console.log(counter);
+
+    }
+    function start()
+    {
+        intervalId = setInterval(bip, 1000);
+        setTimeout(action, counter * 1000);
+
+    }
+</script>
+<style>
+    #bip{
+        background-color:#656363;
+        color: white;
+        display:inline;
+        font-size:9em;
+        padding:10px;
+        border: 3px solid #696969;
+    }
+    #précedente
+    {
+
+        float: right;
+    }
+</style>

@@ -25,7 +25,7 @@
             </h4>
           </div>
           <div id="collapse1" class="panel-collapse collapse">
-             <?php echo $Alarme;?> 
+             <?php echo $alarme;?> 
           </div>
         </div> 
     </div>
