@@ -8,7 +8,7 @@
 <!-- **************************************** -->
 
 
-<div id= "accueil1" class="jumbotron text-center">
+<div id= "accueil" class="jumbotron text-center">
   <br>
   <h1>Espace connexion</h1> 
  </div> 
