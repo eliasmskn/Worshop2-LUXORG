@@ -16,7 +16,7 @@
 	$id_user = $id_u["id_utilisateur"];
 
 
-			if(isset($_GET['deconnexion']) && $_GET['deconnexion'] == 1)
+			if(isset($_GET['deconnexion']) &&$_GET['deconnexion'] == 1)
 			{
 				session_destroy();
 				header('Location: Controleur_index.php');
@@ -208,8 +208,19 @@
     var items = [
         ["cafe", 3],
 
-        ["voiture", 6]
+        ["Alarme", 5],
+         ["Stores", 10],
+         ["Rideaux", 15],
+         ["Café", 20],
+         ["Voiture", 25],
+
     ];
+
+        	
+               $(".content .value").html(items[0][1]);
+               $(".tachesuivante .value").html(items[0][0]);
+        	
+
     for (var i = 0; i < items.length; i++) {
         var dureetime = items[i][1];
         var libelle = items[i][0];
@@ -233,6 +244,8 @@
 
 
         for (var i = 0; i < items.length; i++) {
+        
+
             var dureetime = items[i][1];
             var libelle = items[i][0];
             $("#bip").html(dateHMS(counter));
