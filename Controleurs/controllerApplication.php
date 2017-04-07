@@ -5,8 +5,19 @@
 include("../Vues/Vue_application.php");
 ?>
 <script>
+    var k=0;
     var counter = 0;
     var intervalId = null;
+    var items = [
+        ["cafe", 1],
+
+        ["voiture", 5]
+    ];
+    for (var i = 0; i < items.length; i++) {
+        var dureetime = items[i][1];
+        var libelle = items[i][0];
+
+    }
     function action()
     {
 
@@ -22,11 +33,6 @@ include("../Vues/Vue_application.php");
     }
     function bip()
     {
-        var items = [
-            ["café", 5],
-            ["rideaux", 10],
-            ["voiture", 100]
-        ];
 
 
         for (var i = 0; i < items.length; i++) {
@@ -36,8 +42,13 @@ include("../Vues/Vue_application.php");
            if(counter==dureetime)
            {
                console.log(libelle);
-               $(".content .value").html(libelle);
+               var j=i+1;
 
+               var calc=items[j][1]-items[i][1];
+
+               $(".content .value").html(calc);
+               $(".tacheprecedente .value").html(items[i][0]);
+               $(".tachesuivante .value").html(items[j][0]);
                alert(libelle);
            }
         }
@@ -58,8 +69,13 @@ include("../Vues/Vue_application.php");
         background-color:black;
         color:#1CD06E;
         display:inline;
-        font-size:60px;
+        font-size:9em;
         padding:10px;
         border: 3px solid red;
+    }
+    #précedente
+    {
+
+        float: right;
     }
 </style>
