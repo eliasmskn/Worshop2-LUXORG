@@ -9,9 +9,9 @@ include("../Vues/Vue_application.php");
     var counter = 0;
     var intervalId = null;
     var items = [
-        ["cafe", 1],
+        ["cafe", 3],
 
-        ["voiture", 5]
+        ["voiture", 6]
     ];
     for (var i = 0; i < items.length; i++) {
         var dureetime = items[i][1];
