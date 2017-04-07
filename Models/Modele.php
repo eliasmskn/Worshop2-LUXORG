@@ -50,10 +50,7 @@
 						.$valeurs. " ) ; ";
 
 			$insert = $this->unPDO->prepare($requete);
-			
 			$insert->execute($donnees);
-			
-
 		}
 
 		public function update($tab, $id)
@@ -135,7 +132,7 @@
 
 
 		public function selectwhereTache($id_user){
-			$requete = 'select numero_tache, duree, libelle from tache where id_user = "'.$id_user.'" order by numero_tache;';
+			$requete = 'select id_Tache, id_user, id_objet, numero_tache, duree, libelle from tache where id_user = "'.$id_user.'" ;';
 			$select = $this->unPDO->prepare($requete);	
 				
 			$select->execute();

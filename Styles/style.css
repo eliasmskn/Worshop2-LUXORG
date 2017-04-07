@@ -23,12 +23,12 @@ body {
     background-image: url("");
   }
 
-  .aide
+  /*.aide
   {
     margin-left: 300px;
     color: #FFFAF0;
   }
-
+*/
   .popover-content {
     background-color: #808080;
     color: #FFFFFF;
@@ -42,7 +42,7 @@ body {
     text-align:center;
 }
 
-  .aie
+  /*.aie
   {
     margin-left: 350px;
   }
@@ -51,7 +51,7 @@ body {
   {
     margin-left: 370px;
   }
-
+*/
   .jumbotron {
       background-color: #696969;
       color: #fff;

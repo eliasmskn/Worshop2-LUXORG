@@ -6,7 +6,7 @@
 	include ('Controleurs_Class/Controleur_Class_tache.php');
 	include ('Controleurs_Class/Controleur_Class_Objet_Connectes.php');
 	include ('Controleurs_Class/Controleur_Class_Alarme.php');
-	var_dump($_POST['Ajouter']);
+
 	$unModel = new Modele("localhost", "LuxOrg", "root", "");
 	$uneTache = new Tache();
 
@@ -14,18 +14,29 @@
 	$_SESSION['mail'] = $mail;
 	$id_u = $unModel->selectwheremail($mail);
 	$id_user = $id_u["id_utilisateur"];
+
+
+
+
 			if(isset($_POST['Ajouter']))
 			{
-				$unModel->renseigner("tache","id_Tache");												
-				/*$uneTache = new Tache(); */	
-				$_POST["id_objet"] = 0;
-				$_POST["id_user"] = $id_user;				
-				$uneTache->renseigner($_POST);
-				var_dump($_POST);
-				$tab = $uneTache->serialiser();
-				$unModel->insert($tab);
-				var_dump($tab);
-				die();
+				$unModel->renseigner("Tache","id_Tache");												
+				$uneTache = new Tache();	
+				$_POST["id_objet"] = 1;
+				$_POST["id_user"] = $id_user;	
+
+				$tab = array(
+						      'id_Tache' => $_POST["id_Tache"], 
+						      'id_user' => $id_user, 
+						      'id_objet' => $_POST["id_objet"], 
+						      'numero_tache' => $_POST["numero_tache"],
+						      'duree' => $_POST["duree"],
+						      'libelle' => $_POST["libelle"]
+						  );	
+
+				$uneTache->renseigner($tab);	
+				$res = $uneTache->serialiser();
+				$unModel->insert($res);
 				header('Location: Controleur_espace_perso.php');
 
 			}	
@@ -35,7 +46,7 @@
 			{
 				$action = $_GET['action'];
 				$id = $_GET['id'];
-				var_dump(38);
+	
 				switch ($action) 
 				{	
 			/******************************Suppression tache*************************************/				
@@ -131,7 +142,7 @@
 			$unModel->renseigner("tache", "id_Tache");
 			$listeTaches = $unModel->selectwhereTache($id_user);
 			$chainetaches = "<table class='table table-striped'>
-			<tr><td>Ordre de priorité </td><td> Libelle tache </td><td> Durée tache </td><td>Actions</td></tr>";	
+			<tr><td>Id_tache</td><td>Id_user</td><td>id_objet</td><td>Ordre de priorité </td><td> Libelle tache </td><td> Durée tache </td><td>Actions</td></tr>";	
 
 			foreach ($listeTaches as $key => $value) 
 			{				
@@ -140,9 +151,9 @@
 
 
 				$chainetaches .= "<tr>".$uneTache->afficher();
-				$chainetaches .= "<tr><td>"
+				$chainetaches .= "<td>"
 					."<a href='Controleur_espace_perso.php?action=1&id=".$uneTache->getIdtache()."' data-toggle='tooltip' data-placement='bottom' title='Vérifier Disponibilité '><span class='glyphicon glyphicon-check'></span>"
-					."<a href='Controleur_espace_perso.php?action=2&id=".$uneTache->getIdtache()."' data-toggle='tooltip' data-placement='bottom' title='Valider '><span class='glyphicon glyphicon-ok'></span>"
+					."<a href='Controleur_espace_perso.php?action=2&id=".$uneTache->getIdUser()."' data-toggle='tooltip' data-placement='bottom' title='Valider '><span class='glyphicon glyphicon-ok'></span>"
 					/*."<a href='Controleur_espace_perso.php?action=3id=".$uneTache->getIdtache()."' data-toggle='tooltip' data-placement='bottom' title='Annuler '><span class='glyphicon glyphicon-remove'></span>"
 					."<a href='Controleur_espace_perso.php?action=7&id=".$uneTache->getIdtache()."'><span class='glyphicon glyphicon-save' data-toggle='tooltip' data-placement='bottom' title='Archiver '></span>"
 					."<a href='Controleur_espace_perso.php?action=8&id=".$uneTache->getIdtache()."' data-toggle='tooltip' data-placement='bottom' title='Affectation planning '><span class='glyphicon glyphicon-share-alt'></span>"*/
